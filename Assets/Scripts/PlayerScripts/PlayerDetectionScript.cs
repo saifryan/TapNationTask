@@ -50,7 +50,7 @@ public class PlayerDetectionScript : MonoBehaviour
 
 
         Door collidedDoor = collidedDoorCollider.GetComponentInParent<Door>();
-
+        SoundManagerScript.Instance.AddCharacterPlaySound(SoundManagerScript.Instance.GetAudioSource());
         int runnersAmountToAdd = collidedDoor.GetRunnersAmountToAdd(collidedDoorCollider, transform.childCount);
         playerFormation.AddRunners(runnersAmountToAdd);
         

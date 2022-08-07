@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameControllerScript : MonoBehaviour
 {
+    public static GameControllerScript Instance;
     public delegate void SetGameoverDelegate();
     public static SetGameoverDelegate setGameoverDelegate;
 
@@ -22,8 +23,14 @@ public class GameControllerScript : MonoBehaviour
     public delegate void OnGameoverSet();
     public static OnGameoverSet onGameoverSet;
 
+    public PlayerEndSceneMovementScript player;
     public GameObject[] Levels;
     int currentlevel;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +39,7 @@ public class GameControllerScript : MonoBehaviour
         {
             currentlevel = Random.Range(0, Levels.Length);
         }
-        Debug.Log("Level   : " + currentlevel);
+        //Debug.Log("Level   : " + currentlevel);
         GameObject level = Instantiate(Levels[currentlevel]);
         level.SetActive(true);
     }

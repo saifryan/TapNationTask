@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class UIManagerScript : MonoBehaviour
 {
+    public static UIManagerScript Instance;
     [Header("Main Menu Data")]
     public GameObject MainMenuPanel;
     public Text MainMenulevelText;
@@ -28,6 +29,7 @@ public class UIManagerScript : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         FadePanelIn.SetActive(true);
     }
 
@@ -94,9 +96,16 @@ public class UIManagerScript : MonoBehaviour
             GamePlayPanel.SetActive(false);
             PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
             PlayerPrefs.Save();
-            GameControllerScript.onLevelCompleteSet();
-            StartCoroutine(LevelCompleteTimeDelay());
+            //GameControllerScript.onLevelCompleteSet();
+            GameControllerScript.Instance.player.enabled = true;
+            SoundManagerScript.Instance.LevelCompletPlaySound(SoundManagerScript.Instance.GetAudioSource());
+            //StartCoroutine(LevelCompleteTimeDelay());
         }
+    }
+
+    public void LevelCompletePanelShow()
+    {
+        StartCoroutine(LevelCompleteTimeDelay());
     }
 
     IEnumerator LevelCompleteTimeDelay()
@@ -124,7 +133,7 @@ public class UIManagerScript : MonoBehaviour
                 CustomAnaltyics.instance.GameOverAnaltyics((PlayerPrefs.GetInt("Level") + 1));
             gameState = GameState.GAMEOVER;
             GamePlayPanel.SetActive(false);
-
+            SoundManagerScript.Instance.LevelFailedPlaySound(SoundManagerScript.Instance.GetAudioSource());
             StartCoroutine(LevelFailedTimeDelay());
         }
     }

@@ -72,7 +72,7 @@ public class PlayerRunnerScript : MonoBehaviour
 
         transform.parent = null;
         explodeParticles.Play();
-
+        SoundManagerScript.Instance.DiePlaySound(SoundManagerScript.Instance.GetAudioSource());
         Destroy(gameObject, 3);
     }
 }

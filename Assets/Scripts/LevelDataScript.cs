@@ -6,6 +6,7 @@ public class LevelDataScript : MonoBehaviour
 {
     public static LevelDataScript Instance;
     public Transform EndPoint;
+    public Transform StairPoint;
 
     private void Awake()
     {
