@@ -102,16 +102,19 @@ public class PlayerEndSceneMovementScript : MonoBehaviour
             templeftright = 0;
             if (nextlinecheck)
             {
-                MainRunner[i].run[0].runner.transform.localPosition = new Vector3(templeftright, tempmoveup, 0);
+                //MainRunner[i].run[0].runner.transform.localPosition = new Vector3(templeftright, tempmoveup, 0);
+                LeanTween.moveLocal(MainRunner[i].run[0].runner, new Vector3(templeftright, tempmoveup, 0), 0.35f);
                 templeftright = templeftright + 1;
             }
             else
             {
                 templeftright = templeftright + 0.5f;
-                MainRunner[i].run[0].runner.transform.localPosition = new Vector3(templeftright, tempmoveup, 0);
-                templeftright = templeftright + 1;
+                //MainRunner[i].run[0].runner.transform.localPosition = new Vector3(templeftright, tempmoveup, 0);
+                LeanTween.moveLocal(MainRunner[i].run[0].runner, new Vector3(templeftright, tempmoveup, 0), 0.35f);
+                //templeftright = templeftright + 1;
             }
-
+            CameraFollowScript.CameraLastTargetSet(MainRunner[i].run[0].runner.transform);
+            leftrightcheck = true;
             for (int j = 1; j < MainRunner[i].run.Count; j++)
             {
                 if (nextlinecheck)
@@ -119,12 +122,14 @@ public class PlayerEndSceneMovementScript : MonoBehaviour
                     if (leftrightcheck)
                     {
                         leftrightcheck = !leftrightcheck;
-                        MainRunner[i].run[j].runner.transform.localPosition = new Vector3(templeftright, tempmoveup, 0);
+                        //MainRunner[i].run[j].runner.transform.localPosition = new Vector3(templeftright, tempmoveup, 0);
+                        LeanTween.moveLocal(MainRunner[i].run[j].runner, new Vector3(templeftright, tempmoveup, 0), 0.35f);
                     }
                     else
                     {
                         leftrightcheck = !leftrightcheck;
-                        MainRunner[i].run[j].runner.transform.localPosition = new Vector3(-templeftright, tempmoveup, 0);
+                        //MainRunner[i].run[j].runner.transform.localPosition = new Vector3(-templeftright, tempmoveup, 0);
+                        LeanTween.moveLocal(MainRunner[i].run[j].runner, new Vector3(-templeftright, tempmoveup, 0), 0.35f);
                         templeftright = templeftright + 1;
                     }
                 }
@@ -133,13 +138,14 @@ public class PlayerEndSceneMovementScript : MonoBehaviour
                     if (leftrightcheck)
                     {
                         leftrightcheck = !leftrightcheck;
-                        MainRunner[i].run[j].runner.transform.localPosition = new Vector3(-templeftright, tempmoveup, 0);
-
+                        //MainRunner[i].run[j].runner.transform.localPosition = new Vector3(-templeftright, tempmoveup, 0);
+                        LeanTween.moveLocal(MainRunner[i].run[j].runner, new Vector3(-templeftright, tempmoveup, 0), 0.35f);
                     }
                     else
                     {
                         leftrightcheck = !leftrightcheck;
-                        MainRunner[i].run[j].runner.transform.localPosition = new Vector3(templeftright, tempmoveup, 0);
+                        //MainRunner[i].run[j].runner.transform.localPosition = new Vector3(templeftright, tempmoveup, 0);
+                        LeanTween.moveLocal(MainRunner[i].run[j].runner, new Vector3(templeftright, tempmoveup, 0), 0.35f);
                         templeftright = templeftright + 1;
                     }
                 }
@@ -149,7 +155,10 @@ public class PlayerEndSceneMovementScript : MonoBehaviour
             nextlinecheck = !nextlinecheck;
         }
         GameControllerScript.onLevelCompleteSet();
+        CameraFollowScript.CameraLastTargetSet(MainRunner[MainRunner.Count - 1].run[0].runner.transform);
     }
+
+
 
     // Update is called once per frame
     void Update()
