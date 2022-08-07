@@ -21,24 +21,31 @@ public class CustomAnaltyics : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void Start()
+    {
+        GameAnalytics.Initialize();
+    }
+
     public void GameStartAnaltyics(int level)
     {
         string message = "level_";
         message = message + level + "_start_";
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, message);
+        Debug.LogWarning("Message  :::  " + message);
     }
     public void LevelCompleteAnaltyics(int level)
     {
         string message = "level_";
         message = message + level + "_complete_";
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, message);
-        //Debug.LogWarning("Message  :::  " + message);
+        Debug.LogWarning("Message  :::  " + message);
     }
     public void GameOverAnaltyics(int level)
     {
         string message = "level_";
         message = message + level + "_failed_";
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, message);
+        Debug.LogWarning("Message  :::  " + message);
     }
     
 }

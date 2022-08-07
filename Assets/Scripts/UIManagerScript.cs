@@ -67,7 +67,6 @@ public class UIManagerScript : MonoBehaviour
 
     public void SetMainMenuData()
     {
-        Debug.Log("Set Main Menu!.......");
         MainMenulevelText.text = "Level " + ((PlayerPrefs.GetInt("Level") + 1));
         gameState = GameState.MENU;
         

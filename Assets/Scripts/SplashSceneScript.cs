@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class SplashSceneScript : MonoBehaviour
 {
+    public float LoadTimeDelay = 5f;
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("LoadGamePlay", 3f);
+        Invoke("LoadGamePlay", LoadTimeDelay);
     }
 
     void LoadGamePlay()
