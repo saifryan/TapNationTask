@@ -35,7 +35,7 @@ public class PlayerEndSceneMovementScript : MonoBehaviour
     public List<RunnerStore> MainRunner = new List<RunnerStore>();
 
     public float MoveSpeed;
-    float temomoveup = 0;
+    float tempmoveup = 0;
     float templeftright = 0;
     bool leftrightcheck = true;
     bool nextlinecheck = true;
@@ -102,13 +102,13 @@ public class PlayerEndSceneMovementScript : MonoBehaviour
             templeftright = 0;
             if (nextlinecheck)
             {
-                MainRunner[i].run[0].runner.transform.localPosition = new Vector3(templeftright, temomoveup, 0);
+                MainRunner[i].run[0].runner.transform.localPosition = new Vector3(templeftright, tempmoveup, 0);
                 templeftright = templeftright + 1;
             }
             else
             {
                 templeftright = templeftright + 0.5f;
-                MainRunner[i].run[0].runner.transform.localPosition = new Vector3(templeftright, temomoveup, 0);
+                MainRunner[i].run[0].runner.transform.localPosition = new Vector3(templeftright, tempmoveup, 0);
                 templeftright = templeftright + 1;
             }
 
@@ -119,12 +119,12 @@ public class PlayerEndSceneMovementScript : MonoBehaviour
                     if (leftrightcheck)
                     {
                         leftrightcheck = !leftrightcheck;
-                        MainRunner[i].run[j].runner.transform.localPosition = new Vector3(templeftright, temomoveup, 0);
+                        MainRunner[i].run[j].runner.transform.localPosition = new Vector3(templeftright, tempmoveup, 0);
                     }
                     else
                     {
                         leftrightcheck = !leftrightcheck;
-                        MainRunner[i].run[j].runner.transform.localPosition = new Vector3(-templeftright, temomoveup, 0);
+                        MainRunner[i].run[j].runner.transform.localPosition = new Vector3(-templeftright, tempmoveup, 0);
                         templeftright = templeftright + 1;
                     }
                 }
@@ -133,19 +133,19 @@ public class PlayerEndSceneMovementScript : MonoBehaviour
                     if (leftrightcheck)
                     {
                         leftrightcheck = !leftrightcheck;
-                        MainRunner[i].run[j].runner.transform.localPosition = new Vector3(-templeftright, temomoveup, 0);
+                        MainRunner[i].run[j].runner.transform.localPosition = new Vector3(-templeftright, tempmoveup, 0);
 
                     }
                     else
                     {
                         leftrightcheck = !leftrightcheck;
-                        MainRunner[i].run[j].runner.transform.localPosition = new Vector3(templeftright, temomoveup, 0);
+                        MainRunner[i].run[j].runner.transform.localPosition = new Vector3(templeftright, tempmoveup, 0);
                         templeftright = templeftright + 1;
                     }
                 }
 
             }
-            temomoveup++;
+            tempmoveup = tempmoveup + 1.4f;
             nextlinecheck = !nextlinecheck;
         }
         GameControllerScript.onLevelCompleteSet();

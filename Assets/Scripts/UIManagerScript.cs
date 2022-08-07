@@ -67,8 +67,10 @@ public class UIManagerScript : MonoBehaviour
 
     public void SetMainMenuData()
     {
+        Debug.Log("Set Main Menu!.......");
+        MainMenulevelText.text = "Level " + ((PlayerPrefs.GetInt("Level") + 1));
         gameState = GameState.MENU;
-        MainMenulevelText.text = "Level " + (PlayerPrefs.GetInt("Level") + 1);
+        
     }
 
     public void SetGamePlayData()
@@ -82,7 +84,7 @@ public class UIManagerScript : MonoBehaviour
             GamePlayPanel.SetActive(true);
             GameControllerScript.onGameSet?.Invoke();
             progressBar.fillAmount = 0;
-            GamePlaylevelText.text = "Level " + (PlayerPrefs.GetInt("Level") + 1);
+            GamePlaylevelText.text = "Level " + ((PlayerPrefs.GetInt("Level") + 1));
         }
     }
 
