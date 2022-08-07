@@ -294,7 +294,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8173752289708656358}
   - component: {fileID: 8173752289708656346}
-  - component: {fileID: 8173752289708656356}
   - component: {fileID: 8173752289708656357}
   m_Layer: 6
   m_Name: Bonus Text
@@ -365,14 +364,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!222 &8173752289708656356
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8173752289708656359}
-  m_CullTransparentMesh: 0
 --- !u!114 &8173752289708656357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,7 +480,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8173752289755875960}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 10.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -617,7 +608,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8173752289939706758}
   - component: {fileID: 8173752289939706874}
-  - component: {fileID: 8173752289939706756}
   - component: {fileID: 8173752289939706757}
   m_Layer: 6
   m_Name: Bonus Text
@@ -688,14 +678,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!222 &8173752289939706756
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8173752289939706759}
-  m_CullTransparentMesh: 0
 --- !u!114 &8173752289939706757
 MonoBehaviour:
   m_ObjectHideFlags: 0

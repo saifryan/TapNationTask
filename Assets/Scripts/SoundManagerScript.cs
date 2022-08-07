@@ -24,7 +24,7 @@ public class SoundManagerScript : MonoBehaviour
     {
         for(int i = 0; i < TotalSpawn; i++)
         {
-            AudioSource TempAS = Instantiate(MainObject, transform.position, transform.rotation);
+            AudioSource TempAS = Instantiate(MainObject, transform.position, transform.rotation, transform);
             AS.Add(TempAS);
         }
     }

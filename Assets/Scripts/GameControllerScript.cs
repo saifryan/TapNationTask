@@ -24,7 +24,8 @@ public class GameControllerScript : MonoBehaviour
     public static OnGameoverSet onGameoverSet;
 
     public PlayerEndSceneMovementScript player;
-    public GameObject[] Levels;
+    public int MaxLevel = 5;
+    //public GameObject[] Levels;
     int currentlevel;
 
     private void Awake()
@@ -35,12 +36,13 @@ public class GameControllerScript : MonoBehaviour
     void Start()
     {
         currentlevel = PlayerPrefs.GetInt("Level");
-        if(currentlevel >= Levels.Length)
+        if(currentlevel >= MaxLevel)
         {
-            currentlevel = Random.Range(0, Levels.Length);
+            currentlevel = Random.Range(0, MaxLevel);
         }
         //Debug.Log("Level   : " + currentlevel);
-        GameObject level = Instantiate(Levels[currentlevel]);
+        GameObject level = Resources.Load<GameObject>("Levels/Level_" + (currentlevel + 1));
+        level = Instantiate(level);
         level.SetActive(true);
     }
 
